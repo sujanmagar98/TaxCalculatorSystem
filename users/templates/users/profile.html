@@ -1,0 +1,24 @@
+{% extends "home/base.html" %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<h1>{{ user.username }}</h1>
+<table class="table table-bordered mt-3">
+    <tr>
+        <td>Marital Status</td>
+        <td>Salary</td>
+    </tr>
+    {% for i in all %}
+    <tr>
+        <td>{{i.marital_status}}</td>
+        <td>{{i.salary}}</td>
+        <td></td>
+    </tr>
+    {% endfor % }
+
+
+
+</table>
+{% endblock content %}

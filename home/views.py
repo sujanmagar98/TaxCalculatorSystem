@@ -1,16 +1,19 @@
 from http.client import HTTPResponse
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from .models import Post
+
+
 
 # Create your views here.
 def index(request):
     # test home page will update later
-    return HttpResponse("Home page")
+    return render(request, 'home/index.html')
+
+
 
 
 def about(request):
     # test about page will update later
-    return HttpResponse("About page")
-
-
+    return render(request, 'home/about.html')
 
 
