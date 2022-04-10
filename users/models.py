@@ -10,6 +10,7 @@ class UserProfile(models.Model):
 
     marital_status = models.TextField(max_length=200, null= True, blank=True)
     salary = models.TextField(max_length=200, null= True, blank=True)
+    tax_amount = models.TextField(max_length=200, null= True, blank=True)
 
     def __str__(self):
         return self.sel_user.username

@@ -4,19 +4,34 @@
 
 
 {% block content %}
-<h1>{{ user.username }}</h1>
+<h1> Profile for {{user.username}} </h1>
+
 <table class="table table-bordered mt-3">
     <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email</td>
         <td>Marital Status</td>
         <td>Salary</td>
+        <td>Tax</td>
     </tr>
-    {% for i in all %}
-    <tr>
+    {% for i in all_content%}
+    <tr>        
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.email}}</td>
         <td>{{i.marital_status}}</td>
-        <td>{{i.salary}}</td>
-        <td></td>
+        <td> {{i.salary}} </td>
+        <td> {{tax}} </td>
+        
     </tr>
-    {% endfor % }
+    {% endfor %}
+
+    {% for x in s%}
+    <h1>{{x}}</h1>
+    {% endfor %}
+
+
 
 
 
