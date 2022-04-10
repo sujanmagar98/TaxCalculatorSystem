@@ -70,9 +70,7 @@ def profile(request):
         else:
             tax = 429500 + .36 *(taxable_income - 1300000)
     # print(tax)
-    
-
-    
+  
     return render(request,'users/profile.html',{'all_content':all_content,'tax':tax})
 
 
