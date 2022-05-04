@@ -1,13 +1,7 @@
 <div>
 
     {% extends 'home/base.html' %} 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
+
     {% block content %}
     <main class="container">
 
@@ -23,7 +17,7 @@
 
             <div class="carousel-item active">
               {% load static %}
-              <img src="{% static 'image/law.jpg' %}" class="d-block w-100" id="blog_background" alt="..." height="400px">               
+              <img src="{% static 'image/law.jpg' %}" class="d-block w-100" id="blog_background" alt="..." height="600px">               
               <div class="carousel-caption d-none d-md-block">
                 <h2>Platform to gain legal knowledge</h2>
                 <p>Our best effort to create a resource platform to gain knowldge on various Nepalese law</p>
@@ -31,7 +25,7 @@
             </div>
             
             <div class="carousel-item">
-              <img src="{% static 'image/tools.jpg' %}" class="d-block w-100" id="blog_background" alt="..." height="400px"> 
+              <img src="{% static 'image/tools.jpg' %}" class="d-block w-100" id="blog_background" alt="..." height="600px"> 
               <div class="carousel-caption d-none d-md-block">
                 <h2>Dedicated tools to calculate income tax </h2>
                 <p>Website with a keen focus on regulating tax with the help of professionals</p>
@@ -39,7 +33,7 @@
             </div>
 
             <div class="carousel-item">
-              <img src="{% static 'image/organization.jpg' %}" class="d-block w-100" id="blog_background" alt="..." height="400px"> 
+              <img src="{% static 'image/organization.jpg' %}" class="d-block w-100" id="blog_background" alt="..." height="600px"> 
               <div class="carousel-caption d-none d-md-block">
                 <h2>User account to keep your account on check </h2>
                 <p>Profile for our company with automated tax information</p>
@@ -68,7 +62,7 @@
 
             <h2>{{ tax_infoo.title }}</h2>
           <p>{{ tax_infoo.content|slice:80 }} </p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="{% url  'tax_detail' tax_infoo.slug  %}" role="button">View details &raquo;</a></p>
                 
             
         </div>

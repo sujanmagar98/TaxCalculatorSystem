@@ -17,3 +17,17 @@ def about(request):
     return render(request, 'home/about.html')
 
 
+
+def post_detail(request, slug):
+    post = Post.objects.get(slug=slug)
+
+    return render(request, "home/post_detail.html", {'post':post})
+
+
+
+def tax_detail(request,slug):
+    tax_info = Tax_info.objects.get(slug=slug) 
+    return render(request, "home/taxdetail.html",{"tax_info":tax_info})
+
+
+

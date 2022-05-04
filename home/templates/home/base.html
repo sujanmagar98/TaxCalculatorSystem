@@ -16,25 +16,28 @@
   </a>
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-    <li><a href="home.html" class="nav-link px-2 link-secondary">Home</a></li>
+    <li><a href="{%url 'home'%}" class="nav-link px-2 link-secondary">Home</a></li>
 
     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Tools
     </a>
     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
       <li><a class="dropdown-item" href="#">Tax calculator</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
     </ul>
-    <li><a href="#" class="nav-link px-2 link-dark">Something</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">Something</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">Something</a></li>
-    <li><a href="http://127.0.0.1:5500/about_us.html" class="nav-link px-2 link-dark">About Us</a></li>
+    {% comment %} <li><a href="{% url 'blog' %}" class="nav-link px-2 link-dark">Blog</a></li> {% endcomment %}
+    <li><a href="{% url 'about' %}" class="nav-link px-2 link-dark">About Us</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">Contact Us</a></li>
   </ul>
 
   <div class="col-md-3 text-end">
-    <a class="btn btn-outline-primary me-2" href="{%url 'login'%}" role="button">Login</a>
-    <a class="btn btn-primary" href="{%url 'register'%}" role="button">Sign-up</a>
+    {% if user.is_authenticated %}
+    <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href='{%url 'profile'%}'">Profile</button>
+    <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href='{%url 'logout'%}'">Logout</button>
+
+    {% else %}
+    <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href='{%url 'login'%}'">Login</button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='{%url 'register'%}'">Sign-up</button>
+    {% endif %}
 
    
   </div>
@@ -52,11 +55,11 @@
         </a>
     
         <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">k halne</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">k halne</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">k halne</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">k halne</a></li>
+          <li class="nav-item"><a href="{%url 'home'%}" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Income Tax Calculator</a></li>
+          {% comment %} <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link px-2 text-muted">Blog</a></li> {% endcomment %}
+          <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About Us</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
         </ul>
       </footer>
             

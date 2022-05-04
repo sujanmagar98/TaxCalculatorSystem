@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+
+<main class="container">
+        
+    <article class="blog-post">
+    <h2 class="blog-post-title">{% block title %} {{ tax_info.title }} {% endblock title %} </h2>
+    <img src="{{tax_info.image.url}}" class="img-fluid" alt="Responsive image" height="400px">
+    
+        
+        <!-- <p class="blog-post-meta"> April 7, 2022 06:15 PM <a href="#">Jacob</a></p> -->
+        <p>{{ tax_info.content}}</p>
+        <!-- <blockquote>
+          <p>Longer quote goes here, maybe with some <strong>emphasized text</strong> in the middle of it.</p>
+        </blockquote> -->
+        
+      </article>
+
+    
+
+  
+  </main>
+  
+
+
+{% endblock %}

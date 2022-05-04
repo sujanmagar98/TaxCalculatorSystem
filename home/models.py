@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Tax_info(models.Model): 
     # define different fields/columns for package
     title = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(null=True,max_length=50, unique=True)
     image = models.ImageField(null=True,blank=True,upload_to = "images/")
     content = models.TextField()
 
@@ -16,14 +17,7 @@ class Tax_info(models.Model):
 
 
 
-class Post(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    date_posted = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
 
 
 
