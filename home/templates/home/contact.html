@@ -1,0 +1,35 @@
+{% extends 'home/base.html' %} {% block content %}
+
+
+<div class="container">
+    <h1>Contact us</h1>
+    <form method="POST" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" name="fname" class="form-control" id="firstName" required>
+        </div>
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" name="lname" class="form-control" id="lastName" required>
+      </div>
+      <div class="col-md-8">
+          <label for="emailId" class="form-label">E-mail</label>
+          <input type="email" name="email" class="form-control"id="emailId" required>
+      </div>
+      <div class="col-md-4">
+          <label for="phoneNo" class="form-label">Phone Number</label>
+          <input type="text" name="phone" class="form-control"id="phoneNo" placeholder="+977" >
+      </div>
+      <div class="col-md-12">
+          <label for="commentsid" class="form-label">Comments</label>
+          <textarea class="form-control" name="comments"  id="commentsid" rows="6" required></textarea> 
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+
+    </form>
+</div>
+{% endblock %}

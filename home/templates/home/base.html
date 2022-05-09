@@ -24,9 +24,10 @@
     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
       <li><a class="dropdown-item" href="#">Tax calculator</a></li>
     </ul>
-    {% comment %} <li><a href="{% url 'blog' %}" class="nav-link px-2 link-dark">Blog</a></li> {% endcomment %}
+    <li><a href="{% url 'contact' %}" class="nav-link px-2 link-dark">Contact Us</a></li>
+    <li><a href="{% url 'blog' %}" class="nav-link px-2 link-dark">Blog</a></li>
     <li><a href="{% url 'about' %}" class="nav-link px-2 link-dark">About Us</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">Contact Us</a></li>
+
   </ul>
 
   <div class="col-md-3 text-end">
@@ -57,9 +58,9 @@
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="{%url 'home'%}" class="nav-link px-2 text-muted">Home</a></li>
           <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Income Tax Calculator</a></li>
-          {% comment %} <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link px-2 text-muted">Blog</a></li> {% endcomment %}
+          <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link px-2 text-muted">Blog</a></li>
           <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About Us</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
+          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-muted">Contact Us</a></li>
         </ul>
       </footer>
             
