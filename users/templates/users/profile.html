@@ -1,13 +1,39 @@
 {% extends "home/base.html" %}
 
-{% load crispy_forms_tags %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
 
 
 {% block content %}
+    <main class="container">
+        <div class="card">
+            <h2 class="card-header">Profile</h2>
+            <div class="card-body">
+                {% for i in all_content%}
+              <h3 class="card-title">{{user.first_name}}&nbsp;{{user.last_name}}</h3>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>First name of Employee:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{user.first_name}}</li>
+                <li class="list-group-item"><strong>Last name of Employee:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{user.last_name}}</li>
+                <li class="list-group-item"><strong>Marital Status of Employee:&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{i.marital_status}}</li>
+                <li class="list-group-item"><strong>Fiscal year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> 2020-21</li>
+                <li class="list-group-item"><strong>Annual income: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{i.salary}}</li>
+                {% endfor %}
 
-<div class="container">
-    <h1> Profile for {{user.username}} </h1>
-    <table class="table table-bordered mt-3">
+                <li class="list-group-item"><strong>Tax Amount:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{tax}}</b></h5></li>
+              </ul>
+            </div>
+          </div>   
+        
+
+      
+      </main>
+
+
+
+
+
+
+
+    {% comment %} <table class="table table-bordered mt-3">
         <tr>
             <td>First Name</td>
             <td>Last Name</td>
@@ -36,9 +62,6 @@
     
     
     
-    </table>
-
-
-</div>
+    </table> {% endcomment %}
 
 {% endblock content %}

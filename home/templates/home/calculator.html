@@ -1,0 +1,39 @@
+{% extends 'home/base.html' %} {% block content %}
+
+<div class="container">
+    <h1>Salary Tax Calculator, Nepal</h1>
+    <form class="row g-3" method="POST" >
+      {% csrf_token %}
+        <div class="col-md-6">
+            <label for="mStatus"  class="form-label">Nature of Employee</label>
+            <!-- <input type="text" class="form-control" id="natureEmployee" required> -->
+            <select class="form-select" name="mStatus" id="mStatus">
+              <option value="married">married</option>
+              <option value="unmarried">unmarried</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+          <label for="fiscalYear" class="form-label">Fiscal year</label>
+            <!-- <input type="text" class="form-control" id="fiscalYear" required> -->
+            <select class="form-select" name="fiscalYear" id="fiscalYear">
+              <option value="2020-21">2020-21</option>
+              <option value="2018-19">2018-19</option>
+            </select>
+
+      </div>
+      <div class="col-md-6">
+          <label for="income" class="form-label">Annual Income</label>
+          <input type="text" name="income"   class="form-control"id="income" required>
+      </div>
+      <div class="col-md-6">
+          <label for="deduction" class="form-label">Annual Deduction</label>
+          <input type="text" name="deduction" class="form-control"id="deduction" >
+      </div>
+      
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">Calculate</button>
+      </div>
+
+    </form>
+</div>
+{% endblock %}

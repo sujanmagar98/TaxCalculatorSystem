@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %} {% block content %}
+
+
+
+{% comment %} <h1>  {{tax}}</h1> 
+<h1>  {{mStatus}}</h1> 
+<h1>  {{fYear}}</h1> 
+<h1>  {{taxable_income}}</h1> 
+<h1>  {{income}}</h1> 
+<h1>  {{deduction}}</h1>  {% endcomment %}
+
+<main class="container">
+    <div class="card">
+        <h2 class="card-header">Calculated Tax</h2>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Calculated Tax:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{tax}}</li>
+            <li class="list-group-item"><strong>Marital Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{mStatus}}</li>
+            <li class="list-group-item"><strong>Fiscal year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{fYear}}</li>
+            <li class="list-group-item"><strong>Income:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>{{income}} </li>
+            <li class="list-group-item"><strong>Deduction: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{deduction}}</li>
+
+
+            <li class="list-group-item"><strong>Taxable_income:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{taxable_income}}</b></h5></li>
+          </ul>
+        </div>
+      </div>   
+    
+
+  
+  </main>
+{% endblock %}

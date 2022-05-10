@@ -59,3 +59,136 @@ def contact(request):
 
 
 
+
+def calculator(request):
+    tax = 0.0
+    try:
+        if request.method=="POST":
+            mStatus = request.POST.get('mStatus')
+            fYear = request.POST.get('fiscalYear')
+            income = float(request.POST.get('income')) 
+            deduction = float(request.POST.get('deduction')) 
+            taxable_income = income - deduction
+            if mStatus == "unmarried" and fYear == "2020-21":
+                if taxable_income <= 400000:
+                    tax = taxable_income * .01
+                elif taxable_income <= 500000:
+                    tax = 4000 + .1 *(taxable_income - 400000)
+                elif taxable_income <= 700000:
+                    tax = 14000 + .2 *(taxable_income - 500000)
+                elif taxable_income <= 1300000:
+                    tax = 54000 + .3 *(taxable_income - 700000)
+                else:
+                    tax = 444000 + .36 *(taxable_income - 1300000)
+
+
+            elif mStatus == "married" and fYear == "2020-21":
+                if taxable_income <= 450000:
+                    tax = taxable_income * .01
+                elif taxable_income <= 550000:
+                    tax = 4500 + .1 *(taxable_income - 450000)
+                elif taxable_income <= 750000:
+                    tax = 14500 + .2 *(taxable_income - 550000)
+                elif taxable_income <= 1350000:
+                    tax = 54500 + .3 *(taxable_income - 750000)
+                else:
+                    tax = 429500 + .36 *(taxable_income - 1300000)
+            
+
+            elif mStatus == "married" and fYear == "2018-19" :
+                if taxable_income <= 400000:
+                    tax = taxable_income * .01
+                elif taxable_income <= 500000:
+                    tax = 4000 + .1 *(taxable_income - 400000)
+                elif taxable_income <= 700000:
+                    tax = 14000 + .2 *(taxable_income - 500000)
+                elif taxable_income <= 2000000:
+                    tax = 54000 + .3 *(taxable_income - 700000)
+                else:
+                    tax = 444000 + .36 *(taxable_income - 2000000)
+
+            
+            if mStatus == "unmarried"and fYear == "2018-19":
+                if taxable_income <= 350000:
+                    tax = taxable_income * .01
+                elif taxable_income <= 450000:
+                    tax = 3500 + .1 *(taxable_income - 350000)
+                elif taxable_income <= 650000:
+                    tax = 13500 + .2 *(taxable_income - 450000)
+                elif taxable_income <= 2000000:
+                    tax = 53500 + .3 *(taxable_income - 650000)
+                else:
+                    tax = 458500 + .36 *(taxable_income - 2000000)
+
+
+            request.session['tax'] = tax
+            request.session['fYear'] = fYear
+            request.session['mStatus'] = mStatus
+            request.session['income'] = income
+            request.session['taxable_income'] = taxable_income
+            request.session['deduction'] = deduction
+
+            return HttpResponseRedirect("/result")
+    
+    except:
+        tax = "Invalid info"
+        
+
+
+
+
+
+
+    # try:
+    #     if request.method=="POST":
+    #         tax = 2.3
+    #         mStatus = request.POST.get('mStatus')
+    #         fYear = request.POST.get('fiscalYear')
+    #         income = float(request.POST.get('income')) 
+    #         deduction = float(request.POST.get('deduction')) 
+    #         taxable_income = income - deduction
+
+
+    #         if mStatus == "unmarried":
+    #             if taxable_income <= 400000:
+    #                 tax = taxable_income * .01
+    #             elif taxable_income <= 500000:
+    #                 tax = 4000 + .1 *(taxable_income - 400000)
+    #             elif taxable_income <= 700000:
+    #                 tax = 14000 + .2 *(taxable_income - 500000)
+    #             elif taxable_income <= 2000000:
+    #                 tax = 54000 + .3 *(taxable_income - 700000)
+    #             else:
+    #                 tax = 444000 + .36 *(taxable_income - 1300000)
+    #         elif mStatus == "married":
+    #             if taxable_income <= 450000:
+    #                 tax = taxable_income * .01
+    #             elif taxable_income <= 550000:
+    #                 tax = 4500 + .1 *(taxable_income - 450000)
+    #             elif taxable_income <= 750000:
+    #                 tax = 14500 + .2 *(taxable_income - 550000)
+    #             elif taxable_income <= 2050000:
+    #                 tax = 54500 + .3 *(taxable_income - 750000)
+    #             else:
+    #                 tax = 429500 + .36 *(taxable_income - 1300000)
+                
+            
+            
+
+    # except:
+    #     tax = "Invalid Info"
+
+    
+
+    return render(request, 'home/calculator.html',{'tax':tax})
+
+
+
+def result(request):
+    tax = request.session['tax']
+    mStatus = request.session['mStatus']
+    fYear = request.session['fYear']
+    income = request.session['income']
+    taxable_income = request.session['taxable_income']
+    deduction = request.session['deduction']
+    return render(request, 'home/result.html',{'mStatus':mStatus,'tax':tax,'fYear':fYear,'income':income,'taxable_income':taxable_income,'deduction':deduction})
