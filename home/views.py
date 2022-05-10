@@ -55,6 +55,9 @@ def contact(request):
         contact.phone = phone
         contact.comments = comments
         contact.save()
+        return HttpResponseRedirect("/closure")
+    
+
     return render(request, 'home/contact.html')
 
 
@@ -192,3 +195,9 @@ def result(request):
     taxable_income = request.session['taxable_income']
     deduction = request.session['deduction']
     return render(request, 'home/result.html',{'mStatus':mStatus,'tax':tax,'fYear':fYear,'income':income,'taxable_income':taxable_income,'deduction':deduction})
+
+def closure(request):
+
+
+    return render(request, 'home/closure.html')
+

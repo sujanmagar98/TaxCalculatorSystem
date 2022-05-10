@@ -61,7 +61,7 @@
         <div class="col-md-4">
 
             <h2>{{ tax_infoo.title }}</h2>
-          <p>{{ tax_infoo.content|slice:80 }} </p>
+          <p>{{ tax_infoo.content|slice:"3:80" }} </p>
           <p><a class="btn btn-secondary" href="{% url  'tax_detail' tax_infoo.slug  %}" role="button">View details &raquo;</a></p>
                 
             
